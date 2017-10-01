@@ -1,8 +1,12 @@
 const express = require('express');
 const router  = express.Router();
+const Employee = require('../models/model');
 
 router.get('/', (req, res) => {
-res.send("Hello Router");
+ Employee.getEmployees((err,employees) =>{
+    if(err) throw err;
+    res.json(employees);
+ });
 });
 
 
