@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EmpService } from '../emp.service';
+import { Employee } from '../employee';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Component({
   selector: 'app-show',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public empService:EmpService,
+    public route:ActivatedRoute,
+    public router:Router
+  ) { }
 
   ngOnInit() {
+    this.getEmployee();
+  
   }
+  employee:Employee;
 
+  getEmployee(){
+    var id = this.route.snapshot.params['id'];
+    this.empService.getEmployee(id)
+    .subscribe(employee=>{
+      this.employee = employee;
+    });
+  }
+  goBack(){
+      this.router.navigate(['/home']);
+  }
 }

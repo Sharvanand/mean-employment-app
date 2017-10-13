@@ -1,3 +1,22 @@
-<p>
-  home works!
-</p>
+<table class="table table-bordered">
+  <thead>
+    <tr><td><b>Name</b> </td>
+      <td><b>Position </b></td>
+      <td><b>Department</b></td>
+      <td><b>Salary</b></td>
+      <td align="center"><b>Action</b></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let employee of employees">
+        <td>{{employee.name}}</td>
+        <td>{{employee.position}}</td>
+        <td>{{employee.department}}</td>
+        <td>{{employee.salary}}</td>
+        <td width="250"><a class="btn btn-success" routerLink="/edit/{{employee._id}}">Edit</a>
+          <a class="btn btn-info" routerLink="/show/{{employee._id}}">Details</a>
+          <a class="btn btn-danger" (click)="deleteEmployee(employee._id)">Delete</a></td>
+
+    </tr>
+  </tbody>
+</table>

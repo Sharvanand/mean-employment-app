@@ -1,3 +1,25 @@
-<p>
-  show works!
-</p>
+<div class="panel panel-info" *ngIf=employee>
+  <div class="panel-heading">Employee Details</div>
+  <div class="panel-body">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="emp-name">Employee Name</label>
+        <p class="form-control">{{employee.name}}</p>
+      </div>
+      <div class="form-group">
+          <label for="position">Employee Position</label>
+          <p class="form-control">{{employee.position}}</p>
+        </div>
+        <div class="form-group">
+            <label for="department">Employee Department</label>
+            <p class="form-control">{{employee.department}}</p>
+          </div>
+          <div class="form-group">
+              <label for="salary">Employee Salary</label>
+              <p class="form-control">${{employee.salary}}</p>
+            </div>
+            <a class="btn btn-info" (click)="goBack()">Go Back Home</a>
+
+    </form>
+  </div>
+</div>
